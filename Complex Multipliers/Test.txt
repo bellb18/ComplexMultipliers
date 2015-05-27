@@ -3,3 +3,6 @@ I made some more changes to the file.
 Even MORE.
 Brent added some stuff.
 Conflicting Line.
+Even MORE.
+This is my
+line.
