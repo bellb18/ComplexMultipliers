@@ -67,18 +67,18 @@ architecture arch of regmb is
 
 
 ----------------------------------------------------------- 
-  -- bufx0m_a 
+  -- bufm_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity bufx0m_a is 
+  entity bufm_a is 
       port(a: in std_logic; 
            s:in std_logic; 
            z: out std_logic); 
-  end bufx0m_a; 
+  end bufm_a; 
 
-architecture arch of bufx0m_a is
+architecture arch of bufm_a is
   begin
      bufx0: process(a, s)
      begin
@@ -98,19 +98,19 @@ architecture arch of bufx0m_a is
 
 
 ----------------------------------------------------------- 
-  -- th12x0m_a 
+  -- th12m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th12x0m_a is 
+  entity th12m_a is 
       port(a: in std_logic; 
            b: in std_logic;
            s:in std_logic; 
            z: out std_logic); 
-  end th12x0m_a; 
+  end th12m_a; 
 
-architecture archth12x0m_a of th12x0m_a is
+architecture archth12m_a of th12m_a is
   begin
      th12x0: process(a, b, s)
      begin
@@ -122,24 +122,24 @@ architecture archth12x0m_a of th12x0m_a is
                     z <= '0' after 1 ns;
          	end if;
      end process;
-  end archth12x0m_a; 
+  end archth12m_a; 
   
     ----------------------------------------------------------- 
-    -- th12dx0m_a 
+    -- th12dm_a 
     ----------------------------------------------------------- 
     library ieee; 
     use ieee.std_logic_1164.all; 
   
-    entity th12dx0m_a is 
+    entity th12dm_a is 
         port(a: in std_logic; 
              b: in std_logic;
              rst : in std_logic;
              s:in std_logic;
              
              z: out std_logic); 
-    end th12dx0m_a; 
+    end th12dm_a; 
   
-  architecture archth12dx0m_a of th12dx0m_a is
+  architecture archth12dm_a of th12dm_a is
     begin
        th12dx0: process(a, b, rst, s)
        begin
@@ -153,25 +153,25 @@ architecture archth12x0m_a of th12x0m_a is
                       z <= '0' after 1 ns;
              end if;
        end process;
-    end archth12dx0m_a; 
+    end archth12dm_a; 
     
     
       ----------------------------------------------------------- 
-      -- th12nx0m_a 
+      -- th12nm_a 
       ----------------------------------------------------------- 
       library ieee; 
       use ieee.std_logic_1164.all; 
     
-      entity th12nx0m_a is 
+      entity th12nm_a is 
           port(a: in std_logic; 
                b: in std_logic;
                rst : in std_logic;
                s:in std_logic; 
                
                z: out std_logic); 
-      end th12nx0m_a; 
+      end th12nm_a; 
     
-    architecture archth12nx0m_a of th12nx0m_a is
+    architecture archth12nm_a of th12nm_a is
       begin
          th12x0: process(a, b, rst, s)
          begin
@@ -185,24 +185,24 @@ architecture archth12x0m_a of th12x0m_a is
                         z <= '0' after 1 ns;
                end if;
          end process;
-      end archth12nx0m_a;   
+      end archth12nm_a;   
 
 
 ----------------------------------------------------------- 
-  -- th13x0m_a 
+  -- th13m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th13x0m_a is 
+  entity th13m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            s:in std_logic;
            z: out std_logic); 
-  end th13x0m_a; 
+  end th13m_a; 
 
-  architecture archth13x0m_a of th13x0m_a is 
+  architecture archth13m_a of th13m_a is 
   begin 
      th13x0: process(a, b, c,s) 
      begin 
@@ -214,24 +214,24 @@ architecture archth12x0m_a of th12x0m_a is
           	 z <= '0' after 1 ns; 
          	end if;
      end process; 
-  end archth13x0m_a; 
+  end archth13m_a; 
 
 ----------------------------------------------------------- 
-  -- th14x0m_a 
+  -- th14m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th14x0m_a is 
+  entity th14m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
            s:in std_logic;
            z: out std_logic); 
-  end th14x0m_a; 
+  end th14m_a; 
 
-  architecture archth14x0m_a of th14x0m_a is 
+  architecture archth14m_a of th14m_a is 
   begin 
      th14x0: process(a, b, c, d,s) 
      begin 
@@ -243,24 +243,24 @@ architecture archth12x0m_a of th12x0m_a is
           	 z <= '0' after 1 ns; 
         	end if;
      end process; 
-  end archth14x0m_a; 
+  end archth14m_a; 
 
   ----------------------------------------------------------- 
-  -- th22x0m_a 
+  -- th22m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th22x0m_a is 
+  entity th22m_a is 
       port(a: in std_logic; 
            b: in std_logic;
       s:in std_logic;
            z: out std_logic ); 
-  end th22x0m_a; 
+  end th22m_a; 
 
-  architecture archth22x0m_a of th22x0m_a is 
+  architecture archth22m_a of th22m_a is 
   begin 
-     th22x0m_a: process(a, b,s) 
+     th22m_a: process(a, b,s) 
      begin 
       if  s = '1' then 
               z <= '0' after 2 ns;
@@ -271,25 +271,25 @@ architecture archth12x0m_a of th12x0m_a is
               end if;
      end process; 
 
-  end archth22x0m_a;           
+  end archth22m_a;           
 
   ----------------------------------------------------------- 
-  -- th23x0m_a 
+  -- th23m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th23x0m_a is 
+  entity th23m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic;
       s:in std_logic;
            z: out std_logic ); 
-  end th23x0m_a; 
+  end th23m_a; 
 
-  architecture archth23x0m_a of th23x0m_a is 
+  architecture archth23m_a of th23m_a is 
   begin 
-     th23x0m_a: process(a, b, c,s) 
+     th23m_a: process(a, b, c,s) 
      begin 
         if s = '1' then 
            	z <= '0' after 2 ns; 
@@ -300,7 +300,7 @@ architecture archth12x0m_a of th12x0m_a is
    		end if;
      end process; 
     
-  end archth23x0m_a; 
+  end archth23m_a; 
   
     ----------------------------------------------------------- 
     -- th23xw20m 
@@ -308,17 +308,17 @@ architecture archth12x0m_a of th12x0m_a is
     library ieee; 
     use ieee.std_logic_1164.all; 
   
-    entity th23w2x0m_a is 
+    entity th23w2m_a is 
         port(a: in std_logic; 
              b: in std_logic; 
              c: in std_logic;
         s:in std_logic;
              z: out std_logic ); 
-    end th23w2x0m_a; 
+    end th23w2m_a; 
   
-    architecture arch of th23w2x0m_a is 
+    architecture arch of th23w2m_a is 
     begin 
-       th23w2x0m_a: process(a, b, c,s) 
+       th23w2m_a: process(a, b, c,s) 
        begin 
           if s = '1' then 
                z <= '0' after 2 ns; 
@@ -333,23 +333,23 @@ architecture archth12x0m_a of th12x0m_a is
 
 
 ----------------------------------------------------------- 
-  -- th24x0m_a 
+  -- th24m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th24x0m_a is 
+  entity th24m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th24x0m_a; 
+  end th24m_a; 
 
-  architecture archth24x0m_a of th24x0m_a is 
+  architecture archth24m_a of th24m_a is 
   begin 
-     th24x0m_a: process(a, b, c, d, s) 
+     th24m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -360,26 +360,26 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if;  
      end process; 
-  end archth24x0m_a; 
+  end archth24m_a; 
   
  ----------------------------------------------------------- 
-  -- th24w22x0m_a 
+  -- th24w22m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th24w22x0m_a is 
+  entity th24w22m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th24w22x0m_a; 
+  end th24w22m_a; 
 
-  architecture archth24w22x0m_a of th24w22x0m_a is 
+  architecture archth24w22m_a of th24w22m_a is 
   begin 
-     th24w22x0m_a: process(a, b, c, d, s) 
+     th24w22m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -389,25 +389,25 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth24w22x0m_a; 
+  end archth24w22m_a; 
 
 
   ----------------------------------------------------------- 
-  -- th24w2x0m_a 
+  -- th24w2m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th24w2x0m_a is 
+  entity th24w2m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic;
 	   s: in std_logic; 
            z: out std_logic ); 
-  end th24w2x0m_a; 
+  end th24w2m_a; 
 
-  architecture archth24w2x0m_a of th24w2x0m_a is 
+  architecture archth24w2m_a of th24w2m_a is 
   begin 
      th24w2x0: process(a, b, c, d, s) 
      begin 
@@ -420,29 +420,29 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth24w2x0m_a;  
+  end archth24w2m_a;  
 
 
 
 
   ----------------------------------------------------------- 
-  -- th24compx0m_a 
+  -- th24compm_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th24compx0m_a is 
+  entity th24compm_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
            s:in std_logic;
 	   z: out std_logic ); 
-  end th24compx0m_a; 
+  end th24compm_a; 
 
-  architecture archth24compx0m_a of th24compx0m_a is 
+  architecture archth24compm_a of th24compm_a is 
   begin 
-     th24compx0m_a: process(a, b, c, d,s) 
+     th24compm_a: process(a, b, c, d,s) 
      begin 
         if  s = '1' then 
            	z <= '0' after 2 ns; 
@@ -452,26 +452,26 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 2 ns;     
    		end if;
      end process; 
-  end archth24compx0m_a; 
+  end archth24compm_a; 
 
 
   ----------------------------------------------------------- 
-  -- th33x0m_a 
+  -- th33m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th33x0m_a is 
+  entity th33m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic;
       	s:in std_logic;
            z: out std_logic ); 
-  end th33x0m_a; 
+  end th33m_a; 
 
-  architecture archth33x0m_a of th33x0m_a is 
+  architecture archth33m_a of th33m_a is 
   begin 
-     th33x0m_a: process(a, b, c,s) 
+     th33m_a: process(a, b, c,s) 
      begin 
 	if  s = '1' then 
            	z <= '0' after 2 ns;
@@ -481,26 +481,26 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 2 ns;
         	end if;
      end process; 
-  end archth33x0m_a; 
+  end archth33m_a; 
 
 
   ----------------------------------------------------------- 
-  --th33w2x0m_a 
+  --th33w2m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th33w2x0m_a is 
+  entity th33w2m_a is 
       port(a: in std_logic;
            b: in std_logic; 
            c: in std_logic; 
       s:in std_logic;
            z: out std_logic ); 
-  end th33w2x0m_a; 
+  end th33w2m_a; 
 
-  architecture archth33w2x0m_a of th33w2x0m_a is 
+  architecture archth33w2m_a of th33w2m_a is 
   begin 
-     th33w2x0m_a: process(a, b, c,s) 
+     th33w2m_a: process(a, b, c,s) 
      begin 
         if  s = '1' then 
            	z <= '0' after 2 ns; 
@@ -511,26 +511,26 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 1 ns;     
    		end if;
      end process; 
-  end archth33w2x0m_a; 
+  end archth33w2m_a; 
 
   ----------------------------------------------------------- 
-  --th34w2x0m_a 
+  --th34w2m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th34w2x0m_a is 
+  entity th34w2m_a is 
       port(a: in std_logic;
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic;
       s:in std_logic;
            z: out std_logic ); 
-  end th34w2x0m_a; 
+  end th34w2m_a; 
 
-  architecture archth34w2x0m_a of th34w2x0m_a is 
+  architecture archth34w2m_a of th34w2m_a is 
   begin 
-     th34w2x0m_a: process(a, b, c, d,s) 
+     th34w2m_a: process(a, b, c, d,s) 
      begin 
         if  s = '1' then 
            	z <= '0' after 2 ns; 
@@ -543,26 +543,26 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 1 ns;     
    		end if;
      end process; 
-  end archth34w2x0m_a; 
+  end archth34w2m_a; 
 
 ----------------------------------------------------------- 
-  --th34w22x0m_a 
+  --th34w22m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th34w22x0m_a is 
+  entity th34w22m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th34w22x0m_a; 
+  end th34w22m_a; 
 
-  architecture archth34w22x0m_a of th34w22x0m_a is 
+  architecture archth34w22m_a of th34w22m_a is 
   begin 
-     th34w22x0m_a: process(a, b, c, d,s) 
+     th34w22m_a: process(a, b, c, d,s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -573,26 +573,26 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth34w22x0m_a; 
+  end archth34w22m_a; 
 
 ----------------------------------------------------------- 
-  -- th34w32x0m_a
+  -- th34w32m_a
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th34w32x0m_a is 
+  entity th34w32m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th34w32x0m_a; 
+  end th34w32m_a; 
 
-  architecture archth34w32x0m_a of th34w32x0m_a is 
+  architecture archth34w32m_a of th34w32m_a is 
   begin 
-     th34w32x0m_a: process(a, b, c, d, s) 
+     th34w32m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -602,27 +602,27 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth34w32x0m_a; 
+  end archth34w32m_a; 
 
 
 ----------------------------------------------------------- 
-  -- th34w3x0m_a 
+  -- th34w3m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th34w3x0m_a is 
+  entity th34w3m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th34w3x0m_a; 
+  end th34w3m_a; 
 
-  architecture archth34w3x0m_a of th34w3x0m_a is 
+  architecture archth34w3m_a of th34w3m_a is 
   begin 
-     th34w3x0m_a: process(a, b, c, d, s) 
+     th34w3m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -632,28 +632,28 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth34w3x0m_a; 
+  end archth34w3m_a; 
 
 
 
   ----------------------------------------------------------- 
-  -- th34x0m_a 
+  -- th34m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th34x0m_a is 
+  entity th34m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
            s:in std_logic;
 	   z: out std_logic ); 
-  end th34x0m_a; 
+  end th34m_a; 
 
-  architecture archth34x0m_a of th34x0m_a is 
+  architecture archth34m_a of th34m_a is 
   begin 
-     th34w3x0m_a: process(a, b, c, d,s) 
+     th34w3m_a: process(a, b, c, d,s) 
      begin 
         if  s = '1' then 
            	z <= '0' after 2 ns; 
@@ -666,27 +666,27 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 1 ns;     
    		end if;
      end process; 
-  end archth34x0m_a; 
+  end archth34m_a; 
 
 
  ----------------------------------------------------------- 
-  -- th44x0m_a 
+  -- th44m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th44x0m_a is 
+  entity th44m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
            s:in std_logic;
 	   z: out std_logic ); 
-  end th44x0m_a; 
+  end th44m_a; 
 
-  architecture archth44x0m_a of th44x0m_a is 
+  architecture archth44m_a of th44m_a is 
   begin 
-     th44x0m_a: process(a, b, c, d,s) 
+     th44m_a: process(a, b, c, d,s) 
      begin 
 	if  s = '1'then 
            	z <= '0' after 2 ns;
@@ -696,7 +696,7 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 2 ns;
         	end if;
      end process; 
-  end archth44x0m_a; 
+  end archth44m_a; 
 
 ----------------------------------------------------------- 
   -- th44w22x0 
@@ -704,18 +704,18 @@ architecture archth12x0m_a of th12x0m_a is
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th44w22x0m_a is 
+  entity th44w22m_a is 
       port(a: in std_logic; 
            b: in std_logic;  
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th44w22x0m_a; 
+  end th44w22m_a; 
 
-  architecture archth44w22x0m_a of th44w22x0m_a is 
+  architecture archth44w22m_a of th44w22m_a is 
   begin 
-     th44w22x0m_a: process(a, b, c, d, s) 
+     th44w22m_a: process(a, b, c, d, s) 
      begin 
         if ((a= '1' and b= '1') or 
             (a= '1' and c= '1' and d= '1') or 
@@ -727,26 +727,26 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth44w22x0m_a; 
+  end archth44w22m_a; 
 
 ----------------------------------------------------------- 
-  -- th44w322x0m_a 
+  -- th44w322m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th44w322x0m_a is 
+  entity th44w322m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th44w322x0m_a ; 
+  end th44w322m_a ; 
 
-  architecture archth44w322x0m_a of th44w322x0m_a is 
+  architecture archth44w322m_a of th44w322m_a is 
   begin 
-     th44w322x0m_a: process(a, b, c, d, s) 
+     th44w322m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -756,27 +756,27 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archth44w322x0m_a; 
+  end archth44w322m_a; 
 
   
     ----------------------------------------------------------- 
-    -- th44w2x0m_a 
+    -- th44w2m_a 
     ----------------------------------------------------------- 
     library ieee; 
     use ieee.std_logic_1164.all; 
   
-    entity th44w2x0m_a is 
+    entity th44w2m_a is 
         port(a: in std_logic; 
              b: in std_logic; 
              c: in std_logic; 
              d: in std_logic; 
              s: in std_logic;
              z: out std_logic ); 
-    end th44w2x0m_a; 
+    end th44w2m_a; 
   
-    architecture archth44w2x0m_a of th44w2x0m_a is 
+    architecture archth44w2m_a of th44w2m_a is 
     begin 
-       th44w2x0m_a: process(a, b, c, d, s) 
+       th44w2m_a: process(a, b, c, d, s) 
        begin 
           if s = '1' then
               z<= '0' after 2 ns; 
@@ -788,7 +788,7 @@ architecture archth12x0m_a of th12x0m_a is
                  z<='0' after 2 ns; 
           end if; 
        end process; 
-    end archth44w2x0m_a; 
+    end archth44w2m_a; 
 
 
 ----------------------------------------------------------- 
@@ -797,18 +797,18 @@ architecture archth12x0m_a of th12x0m_a is
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th44w3x0m_a is 
+  entity th44w3m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th44w3x0m_a; 
+  end th44w3m_a; 
 
-  architecture archth44w3x0m_a of th44w3x0m_a is 
+  architecture archth44w3m_a of th44w3m_a is 
   begin 
-     th44w3x0m_a: process(a, b, c, d, s) 
+     th44w3m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -818,7 +818,7 @@ architecture archth12x0m_a of th12x0m_a is
 	  z <= '0' after 2 ns;
         end if;
      end process; 
-  end archth44w3x0m_a ; 
+  end archth44w3m_a ; 
 
 
   ----------------------------------------------------------- 
@@ -827,18 +827,18 @@ architecture archth12x0m_a of th12x0m_a is
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th54w22x0m_a is 
+  entity th54w22m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th54w22x0m_a; 
+  end th54w22m_a; 
 
-  architecture archth54w22x0m_a of th54w22x0m_a is 
+  architecture archth54w22m_a of th54w22m_a is 
   begin 
-     th54w22x0m_a: process(a, b, c, d, s) 
+     th54w22m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -848,7 +848,7 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if;
      end process; 
-  end archth54w22x0m_a; 
+  end archth54w22m_a; 
 
 
   ----------------------------------------------------------- 
@@ -857,18 +857,18 @@ architecture archth12x0m_a of th12x0m_a is
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th54w322x0m_a is 
+  entity th54w322m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
 	   s: in std_logic;
            z: out std_logic ); 
-  end th54w322x0m_a; 
+  end th54w322m_a; 
 
-  architecture archth54w322x0m_a of th54w322x0m_a is 
+  architecture archth54w322m_a of th54w322m_a is 
   begin 
-     th54w322x0m_a: process(a, b, c, d, s) 
+     th54w322m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -879,27 +879,27 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns; 
         end if; 
      end process; 
-  end archth54w322x0m_a; 
+  end archth54w322m_a; 
 
 
   ----------------------------------------------------------- 
-  -- th54w32x0m_a
+  -- th54w32m_a
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity th54w32x0m_a is 
+  entity th54w32m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic;
 	   s: in std_logic; 
            z: out std_logic ); 
-  end th54w32x0m_a; 
+  end th54w32m_a; 
 
-  architecture archth54w32x0m_a of th54w32x0m_a is 
+  architecture archth54w32m_a of th54w32m_a is 
   begin 
-     th54w32x0m_a: process(a, b, c, d, s) 
+     th54w32m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -909,30 +909,30 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if;  
      end process; 
-  end archth54w32x0m_a; 
+  end archth54w32m_a; 
 
 
 
   
   
    ----------------------------------------------------------- 
-  -- thand0x0m_a 
+  -- thand0m_a 
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity thand0x0m_a is 
+  entity thand0m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic; 
            s:in std_logic;
 	   z: out std_logic ); 
-  end thand0x0m_a; 
+  end thand0m_a; 
 
-  architecture archthand0x0m_a of thand0x0m_a is 
+  architecture archthand0m_a of thand0m_a is 
   begin 
-     thand0x0m_a: process(a, b, c, d,s) 
+     thand0m_a: process(a, b, c, d,s) 
      begin 
         if  s = '1' then 
            	z <= '0' after 2 ns; 
@@ -942,26 +942,26 @@ architecture archth12x0m_a of th12x0m_a is
 			z<='0' after 2 ns;     
    		end if;
      end process; 
-  end archthand0x0m_a; 
+  end archthand0m_a; 
 
 ----------------------------------------------------------- 
-  -- thxor0x0m_a     
+  -- thxor0m_a     
   ----------------------------------------------------------- 
   library ieee; 
   use ieee.std_logic_1164.all; 
 
-  entity thxor0x0m_a is 
+  entity thxor0m_a is 
       port(a: in std_logic; 
            b: in std_logic; 
            c: in std_logic; 
            d: in std_logic;
 	   s: in std_logic; 
            z: out std_logic ); 
-  end thxor0x0m_a; 
+  end thxor0m_a; 
 
-  architecture archthxor0x0m_a of thxor0x0m_a is 
+  architecture archthxor0m_a of thxor0m_a is 
   begin 
-     thxor0x0m_a: process(a, b, c, d, s) 
+     thxor0m_a: process(a, b, c, d, s) 
      begin 
         if s = '1' then 
            z <= '0' after 2 ns; 
@@ -971,6 +971,6 @@ architecture archth12x0m_a of th12x0m_a is
 		z <= '0' after 2 ns;
         end if; 
      end process; 
-  end archthxor0x0m_a; 
+  end archthxor0m_a; 
 
 --end MTNCL_gates;
