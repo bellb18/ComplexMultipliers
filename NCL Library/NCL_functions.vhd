@@ -3,34 +3,9 @@
 
 Library IEEE;
 use IEEE.std_logic_1164.all;
-
-package ncl_signals is
-
-type quad_rail_logic is
-   record
-        RAIL3 : std_logic;
-        RAIL2 : std_logic;
-        RAIL1 : std_logic;
-        RAIL0 : std_logic;
-   end record;
-
-type quad_rail_logic_vector is array (NATURAL range <>) of quad_rail_logic;
-
-type dual_rail_logic is
-   record
-        RAIL1 : std_logic;
-        RAIL0 : std_logic;
-   end record;
-
-type dual_rail_logic_vector is array (NATURAL range <>) of dual_rail_logic;
-
-end ncl_signals;
-
-
-Library IEEE;
-use IEEE.std_logic_1164.all;
-use IEEE.std_logic_signed.all;
-use ieee.std_logic_arith.all;
+use IEEE.numeric_std.all;
+--use IEEE.std_logic_signed.all;
+--use ieee.std_logic_arith.all;
 
 use work.ncl_signals.all;
 
@@ -192,7 +167,7 @@ variable Int_to_Std: std_logic_vector(size-1 downto 0);
 variable Std_to_Rail: DUAL_RAIL_LOGIC_VECTOR(size-1 downto 0);
 begin
 
-            Int_to_Std :=  conv_std_logic_vector(int, size);
+            Int_to_Std :=  std_logic_vector(int);
 	    Std_to_Rail := to_DR(Int_to_Std);
     return Std_to_Rail;
 end Int_to_DR;

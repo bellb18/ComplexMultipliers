@@ -1,12 +1,12 @@
 
------------------------------------------^M
+-----------------------------------------
 -- Definition of  full_add
------------------------------------------^M
---
+-----------------------------------------
 use work.ncl_signals.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
+-- MTNCL Full Adder
 entity FAm is
    port (
          CIN : IN dual_rail_logic ;
@@ -14,7 +14,7 @@ entity FAm is
          Y: IN dual_rail_logic ;
          sleep: in std_logic;
          COUT: OUT dual_rail_logic ;
-         S      : OUT dual_rail_logic );--*
+         S      : OUT dual_rail_logic );
 end FAm ;
 
 architecture archthfax0 of FAm is
@@ -79,14 +79,14 @@ begin
 
 end archthfax0;
 
------------------------------------------^M
+-----------------------------------------
 -- Definition of  half_add
------------------------------------------^M
---
+-----------------------------------------
 use work.ncl_signals.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
+-- MTNCL Half Adder
 entity HAm is
    port (
          X: IN dual_rail_logic ;
@@ -100,14 +100,14 @@ architecture arch of HAm is
 component th12m is
        port(a: in std_logic;
             b: in std_logic;
-           sleep:in std_logic;
+           s:in std_logic;
             z: out std_logic);
    end component;
 
 component th22m is
        port(a: in std_logic;
             b: in std_logic;
-      sleep:in std_logic;
+      s:in std_logic;
            z: out std_logic );
    end component;
 
@@ -116,7 +116,7 @@ component th24compm is
             b: in std_logic;
             c: in std_logic;
             d: in std_logic;
-            sleep:in std_logic;
+            s:in std_logic;
 	   z: out std_logic );
    end component;
        
@@ -125,21 +125,21 @@ begin
                 X.rail0,
                 Y.rail0,
                 sleep,
-                COUT.rail0);--#
+                COUT.rail0);
 
    g1: th22m port map(
                  X.rail1,
                  Y.rail1,
                  sleep,
-                 COUT.rail1);--#
-
+                 COUT.rail1);
+                 
    g2: th24compm port map(
                  X.rail0,
                  Y.rail1,
                  Y.rail0,
                  X.rail1,
                  sleep,
-                 S.rail0);--#
+                 S.rail0);
 
    g3: th24compm port map(
                  X.rail0,
@@ -147,19 +147,18 @@ begin
                  Y.rail1,
                  X.rail1,
                  sleep,
-                 S.rail1);--#
+                 S.rail1);
 end arch;
 
 
+library ieee;
+use ieee.std_logic_1164.all;
+use work.ncl_signals.all;
 
 ---------------------------------------------------
 -- NCL Full adder with Cin = '1'
 -- Similar to Half Adder, used by the substractor
 ---------------------------------------------------
-library ieee;
-use ieee.std_logic_1164.all;
-use work.ncl_signals.all;
-
 entity FAm1 is
   port(X: dual_rail_logic;
        Y: in dual_rail_logic;
@@ -171,19 +170,19 @@ end FAm1;
 architecture arch of FAm1 is
   component th22m
     port(a, b: in std_logic;
-	sleep: in std_logic;
+	s: in std_logic;
       z: out std_logic);
   end component;
   
   component th12m
     port(a, b: in std_logic;
-	sleep: in std_logic;
+	s: in std_logic;
       z: out std_logic);
   end component;
   
   component th24compm
     port(a, b, c, d: in std_logic;
-	 sleep : in std_logic;
+	 s : in std_logic;
             z: out std_logic);
   end component;
   
@@ -192,9 +191,10 @@ architecture arch of FAm1 is
 begin
   cout0: th12m
     port map(X.rail0, Y.rail0, sleep,  Cmid.rail0);
-  
   cout1: th22m
-    port map(X.rail1, X.rail1, sleep, Cmid.rail1); --tricky here!! Previous design has a bug.
+    port map(X.rail1, Y.rail1, sleep, Cmid.rail1); --tricky here!! Previous design has a bug.
+  --cout1: th22m
+  --  port map(X.rail1, X.rail1, sleep, Cmid.rail1); --tricky here!! Previous design has a bug.
 
       COUT.rail1 <= Cmid.rail0;
       COUT.rail0 <= Cmid.rail1;
@@ -233,14 +233,14 @@ architecture arch of and2im is
 component th12m is
        port(a: in std_logic;
             b: in std_logic;
-           sleep:in std_logic;
+           s:in std_logic;
             z: out std_logic);
    end component;
 
 component th22m is
        port(a: in std_logic;
             b: in std_logic;
-      sleep:in std_logic;
+      s:in std_logic;
            z: out std_logic );
    end component;
         
