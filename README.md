@@ -3,15 +3,11 @@
 ## Conventional
 
 ## MTNCL Library
-### MTNCL_FHadder.vhd
-### MTNCL_gates.vhd
-
-* Item 1
-* Item 2
+* MTNCL_FHadder.vhd -- Contains MTNCL Full Adder and Half Adder
+* MTNCL_gates.vhd -- Contains standard MTNCL gates
 
 ## NCL Library
-
-	* Item 3
-	* Item 4
+* NCL_functions.vhd -- Contains NCL dual and quad-rail signals as well as functions for NCL
+* NCL_gates.vhd -- Contains standard NCL gates
 
 
