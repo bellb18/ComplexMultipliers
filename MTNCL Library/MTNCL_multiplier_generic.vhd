@@ -1,7 +1,7 @@
 Library IEEE;
 use IEEE.std_logic_1164.all;
 use work.ncl_signals.all;
-entity multQ15 is
+entity mult_gen is
 	generic(width : in integer := 16);
 	port(x                : in  dual_rail_logic_vector(width - 1 downto 0);
 		 y                : in  dual_rail_logic_vector(width - 1 downto 0);
@@ -11,7 +11,7 @@ entity multQ15 is
 		 ko               : out std_logic);
 end;
 
-architecture arch of multQ15 is
+architecture arch of mult_gen is
 	component FAm
 		port(CIN, X, Y : in  dual_rail_logic;
 			 sleep     : in  std_logic;
