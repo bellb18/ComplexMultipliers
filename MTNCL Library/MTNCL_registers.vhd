@@ -5,6 +5,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use work.ncl_signals.all;
+use work.MTNCL_gates.all;
 entity regm is
 	port(a     : in  dual_rail_logic;
 		 sleep : in  std_logic;
@@ -12,12 +13,6 @@ entity regm is
 end regm;
 
 architecture arch of regm is
-	component th12m_a is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
 
 	signal t0, t1 : std_logic;
 begin

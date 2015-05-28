@@ -3,6 +3,7 @@
 -- Definition of  full_add
 -----------------------------------------
 use work.ncl_signals.all;
+use work.MTNCL_gates.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -18,22 +19,6 @@ entity FAm is
 end FAm;
 
 architecture archthfax0 of FAm is
-	component th23m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 c : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
-
-	component th34w2m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 c : in  std_logic;
-			 d : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
 
 	signal s0_buffer : std_logic;
 	signal s1_buffer : std_logic;
@@ -45,19 +30,19 @@ begin
 	S.rail1    <= s1_buffer;
 	COUT.rail0 <= y0_buffer;
 	COUT.rail1 <= y1_buffer;
-	th0 : th23m
+	th0 : th23m_a
 		port map(X.rail0,
 			     Y.rail0,
 			     CIN.rail0,
 			     sleep,
 			     y0_buffer);            --#
-	th1 : th23m
+	th1 : th23m_a
 		port map(X.rail1,
 			     Y.rail1,
 			     CIN.rail1,
 			     sleep,
 			     y1_buffer);            --#
-	th2 : th34w2m
+	th2 : th34w2m_a
 		port map(y0_buffer,
 			     X.rail1,
 			     Y.rail1,
@@ -65,7 +50,7 @@ begin
 			     sleep,
 			     s1_buffer);            --#
 
-	th3 : th34w2m
+	th3 : th34w2m_a
 		port map(y1_buffer,
 			     X.rail0,
 			     Y.rail0,
@@ -79,6 +64,7 @@ end archthfax0;
 -- Definition of  half_add
 -----------------------------------------
 use work.ncl_signals.all;
+use work.MTNCL_gates.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -92,43 +78,21 @@ entity HAm is
 		S     : OUT dual_rail_logic);   --*
 end HAm;
 architecture arch of HAm is
-	component th12m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
-
-	component th22m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
-
-	component th24compm is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 c : in  std_logic;
-			 d : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
 
 begin
-	g0 : th12m port map(
+	g0 : th12m_a port map(
 			X.rail0,
 			Y.rail0,
 			sleep,
 			COUT.rail0);
 
-	g1 : th22m port map(
+	g1 : th22m_a port map(
 			X.rail1,
 			Y.rail1,
 			sleep,
 			COUT.rail1);
 
-	g2 : th24compm port map(
+	g2 : th24compm_a port map(
 			X.rail0,
 			Y.rail1,
 			Y.rail0,
@@ -136,7 +100,7 @@ begin
 			sleep,
 			S.rail0);
 
-	g3 : th24compm port map(
+	g3 : th24compm_a port map(
 			X.rail0,
 			Y.rail0,
 			Y.rail1,
@@ -148,6 +112,7 @@ end arch;
 library ieee;
 use ieee.std_logic_1164.all;
 use work.ncl_signals.all;
+use work.MTNCL_gates.all;
 
 ---------------------------------------------------
 -- NCL Full adder with Cin = '1'
@@ -162,30 +127,13 @@ entity FAm1 is
 end FAm1;
 
 architecture arch of FAm1 is
-	component th22m
-		port(a, b : in  std_logic;
-			 s    : in  std_logic;
-			 z    : out std_logic);
-	end component;
-
-	component th12m
-		port(a, b : in  std_logic;
-			 s    : in  std_logic;
-			 z    : out std_logic);
-	end component;
-
-	component th24compm
-		port(a, b, c, d : in  std_logic;
-			 s          : in  std_logic;
-			 z          : out std_logic);
-	end component;
 
 	signal Cmid : dual_rail_logic;
 
 begin
-	cout0 : th12m
+	cout0 : th12m_a
 		port map(X.rail0, Y.rail0, sleep, Cmid.rail0);
-	cout1 : th22m
+	cout1 : th22m_a
 		port map(X.rail1, Y.rail1, sleep, Cmid.rail1); --tricky here!! Previous design has a bug.
 	--cout1: th22m
 	--  port map(X.rail1, X.rail1, sleep, Cmid.rail1); --tricky here!! Previous design has a bug.
@@ -196,10 +144,10 @@ begin
 	--cout1: thand0x0
 	--	port map(a.rail1, b.rail1, a.rail0, b.rail0, cout.rail1);
 
-	sum0 : th24compm
+	sum0 : th24compm_a
 		port map(X.rail0, Y.rail0, Y.rail1, X.rail1, sleep, S.rail0);
 
-	sum1 : th24compm
+	sum1 : th24compm_a
 		port map(X.rail0, Y.rail1, Y.rail0, X.rail1, sleep, S.rail1);
 
 end arch;

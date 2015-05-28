@@ -4,6 +4,7 @@
 -----------------------------------------^M
 --
 use work.ncl_signals.all;
+use work.MTNCL_gates.all;
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -15,28 +16,15 @@ entity and2im is
 end and2im;
 
 architecture arch of and2im is
-	component th12m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
-
-	component th22m is
-		port(a : in  std_logic;
-			 b : in  std_logic;
-			 s : in  std_logic;
-			 z : out std_logic);
-	end component;
 
 begin
-	g0 : th12m port map(
+	g0 : th12m_a port map(
 			a.rail0,
 			b.rail0,
 			sleep,
 			z.rail0);                   --#
 
-	g1 : th22m port map(
+	g1 : th22m_a port map(
 			a.rail1,
 			b.rail1,
 			sleep,
