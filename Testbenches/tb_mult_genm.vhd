@@ -9,17 +9,14 @@ end TB_mult_gen;
 
 architecture tb_arch of TB_mult_gen is
 
-  component mult_genm
-  generic(width: in integer:= 8);
-  port(a: in dual_rail_logic_vector (width-1 downto 0);
-       b: in dual_rail_logic_vector (width-1 downto 0);
-       reset: in std_logic;
-       kOut: out std_logic;
-       kIn: in std_logic;
-	   inSleep: in std_logic;
-	   outSleep: out std_logic;
-       result: out dual_rail_logic_vector((width*2)-1 downto 0)
-       );
+component mult_genm is
+	generic(width : in integer := 16);
+	port(x                : in  dual_rail_logic_vector(width - 1 downto 0);
+		 y                : in  dual_rail_logic_vector(width - 1 downto 0);
+		 ki, rst, sleepin : in  std_logic;
+		 p                : out dual_rail_logic_vector(2 * width - 1 downto 0);
+		 sleepout         : out std_logic;
+		 ko               : out std_logic);
 end component;
   
   signal a_signal: dual_rail_logic_vector(7 downto 0);
@@ -41,14 +38,14 @@ end component;
   uut: mult_genm
   generic map(8)
   port map(
-    a => a_signal,
-    b => b_signal,
-	reset => reset_signal,
-	kOut => kOut_signal,
-	kIn => kIn_signal,
-	inSleep => inSleep_signal,
-	outSleep => outSleep_signal,
-	result => result_signal
+    x => a_signal,
+    y => b_signal,
+	rst => reset_signal,
+	ko => kOut_signal,
+	ki => kIn_signal,
+	sleepin => inSleep_signal,
+	sleepout => outSleep_signal,
+	p => result_signal
     );
     
   signal_tb: process
