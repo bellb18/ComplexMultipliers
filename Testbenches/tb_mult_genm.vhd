@@ -16,7 +16,7 @@ architecture arch of tb_mult_genm is
 	signal P    : DUAL_RAIL_LOGIC_VECTOR(15 downto 0);
 
 	signal ki, rst, sleepin : std_logic;
-	signal sleepout, ko     : STD_LOGIC;
+	signal sleepout, ko     : std_logic;
 
 	component mult_genm is
 	generic(width : in integer := 16);
@@ -34,7 +34,6 @@ begin
 		port map(X, Y, ki, rst, sleepin, P, sleepout, ko);
 
 	inputs : process
-		variable int_rand3 : time;
 		variable Xin       : STD_LOGIC_VECTOR(7 downto 0);
 		variable Yin       : STD_LOGIC_VECTOR(7 downto 0);
 
@@ -64,7 +63,7 @@ begin
 				end loop;
 				wait until ko = '0';
 
-				wait for int_rand3;
+				wait for 1 ns;
 
 				sleepin <= '1';
 				wait for 1 ns;
@@ -77,7 +76,7 @@ begin
 				end loop;
 
 				wait until ko = '1';
-				wait for int_rand3;
+				wait for 1 ns;
 
 			end loop;
 		end loop;
@@ -108,5 +107,5 @@ begin
 		end if;
 
 	end process;
-
+	
 end arch;
