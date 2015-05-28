@@ -16,7 +16,6 @@ entity and2im is
 end and2im;
 
 architecture arch of and2im is
-
 begin
 	g0 : th12m_a port map(
 			a.rail0,
@@ -51,3 +50,37 @@ begin
 	y.rail1 <= x.rail0;
 
 end arch_invertor;
+
+-----------------------------------------^M
+-- Definition of  MSB
+-----------------------------------------^M
+use work.ncl_signals.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use work.MTNCL_gates.all;
+entity MSBm is
+	port(
+		X     : IN  dual_rail_logic;
+		Y     : IN  dual_rail_logic;
+		Pre   : IN  dual_rail_logic;
+		sleep : in  std_logic;
+		P     : OUT dual_rail_logic);   --*
+end MSBm;
+
+architecture archmsbx0 of MSBm is
+begin
+	th0 : th23m_a
+		port map(X.rail0,
+			     Y.rail0,
+			     Pre.rail0,
+			     sleep,
+			     P.rail0);              --#
+	th1 : th23m_a
+		port map(X.rail1,
+			     Y.rail1,
+			     Pre.rail1,
+			     sleep,
+			     P.rail1);              --#
+
+
+end archmsbx0;
