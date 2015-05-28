@@ -26,7 +26,7 @@ architecture arch of mult_gen is
 			SIN   : IN  dual_rail_logic;
 			sleep : in  std_logic;
 			COUT  : OUT dual_rail_logic;
-			SOUT  : OUT dual_rail_logic); --*
+			SOUT  : OUT dual_rail_logic);
 	end component;
 
 	component CSAm_inv is
