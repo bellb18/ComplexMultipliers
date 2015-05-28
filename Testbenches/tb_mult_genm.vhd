@@ -55,23 +55,29 @@ end component;
 	reset_signal <= '1';
     inpA <= "00000000";
     inpB <= "00000000";
-    wait until kOut_signal = '1';
-    inSleep_signal <= '0';
+    wait for 50 ns;
 	reset_signal <= '0';
 
     for j in 0 to 255 loop    
-      for i in 0 to 255 loop    
+      for i in 0 to 255 loop
+      	inSleep_signal <= '0';
+      	wait for 1 ns;
         for k in 0 to 7 loop
           a_signal(k).rail0 <= not inpA(k);
           a_signal(k).rail1 <= inpA(k);
           b_signal(k).rail0 <= not inpB(k);
           b_signal(k).rail1 <= inpB(k);      
-        end loop;
+      	end loop;
         wait until kOut_signal <= '0';
         inSleep_signal <= '1';
         inpB <= inpB + 1;
+        for k in 0 to 7 loop
+          a_signal(k).rail0 <= '0';
+          a_signal(k).rail1 <= '0';
+          b_signal(k).rail0 <= '0';
+          b_signal(k).rail1 <= '0';      
+      	end loop;
         wait until kOut_signal <= '1';
-		inSleep_signal <= '0';
       end loop;
       inpA <= inpA + 1;
     end loop;
