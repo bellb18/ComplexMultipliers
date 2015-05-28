@@ -9,7 +9,7 @@ end TB_mult_gen;
 
 architecture tb_arch of TB_mult_gen is
 
-  component generic_multiplier_MT
+  component mult_genm
   generic(width: in integer:= 8);
   port(a: in dual_rail_logic_vector (width-1 downto 0);
        b: in dual_rail_logic_vector (width-1 downto 0);
@@ -38,7 +38,7 @@ end component;
   
   begin
     
-  uut: generic_multiplier_MT
+  uut: mult_genm
   generic map(8)
   port map(
     a => a_signal,
