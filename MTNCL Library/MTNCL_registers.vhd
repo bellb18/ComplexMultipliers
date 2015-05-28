@@ -13,7 +13,6 @@ entity regm is
 end regm;
 
 architecture arch of regm is
-
 	signal t0, t1 : std_logic;
 begin
 	Gr0 : th12m_a
