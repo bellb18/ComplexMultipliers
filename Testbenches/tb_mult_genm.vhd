@@ -18,17 +18,19 @@ architecture arch of tb_mult_genm is
 	signal ki, rst, sleepin : std_logic;
 	signal sleepout, ko     : STD_LOGIC;
 
-	component mult8forheteo is
-		port(x                : in  dual_rail_logic_vector(7 downto 0);
-			 y                : in  dual_rail_logic_vector(7 downto 0);
-			 ki, rst, sleepin : in  std_logic;
-			 p                : out dual_rail_logic_vector(15 downto 0);
-			 sleepout         : out std_logic;
-			 ko               : out std_logic);
+	component mult_genm is
+	generic(width : in integer := 16);
+	port(x                : in  dual_rail_logic_vector(width - 1 downto 0);
+		 y                : in  dual_rail_logic_vector(width - 1 downto 0);
+		 ki, rst, sleepin : in  std_logic;
+		 p                : out dual_rail_logic_vector(2 * width - 1 downto 0);
+		 sleepout         : out std_logic;
+		 ko               : out std_logic);
 	end component;
 
 begin
-	CUT : mult8forheteo
+	CUT : mult_genm
+		generic map(8)
 		port map(X, Y, ki, rst, sleepin, P, sleepout, ko);
 
 	inputs : process
