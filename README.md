@@ -9,7 +9,7 @@
 * MTNCL_completion -- Contains completion gates
 * MTNCL_gates -- Contains standard MTNCL gates
 * MTNCL_multiplier_generic  -- Contains a generic multiplier
-*MTNCL_registers -- Contains regm
+* MTNCL_registers -- Contains regm
 
 
 ## NCL Library
