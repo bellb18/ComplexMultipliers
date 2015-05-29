@@ -62,6 +62,8 @@ begin
 		Yi <= Int_to_DR(6, 8);
 		Yr <= Int_to_DR(3, 8);
 		
+		--Result (-42-24i)
+		
 		wait until ko = '0';
 
 		wait for 1 ns;
@@ -122,6 +124,8 @@ sleepin <= '0';
 		Yi <= Int_to_DR(-6, 8);
 		Yr <= Int_to_DR(3, 8);
 		
+		--Result (792+321i)
+		
 		wait until ko = '0';
 
 		wait for 1 ns;
@@ -150,6 +154,8 @@ sleepin <= '0';
 		Xr <= Int_to_DR(4, 8);
 		Yi <= Int_to_DR(16, 8);
 		Yr <= Int_to_DR(-3, 8);
+		
+		--Result (20+70i)
 		
 		wait until ko = '0';
 
