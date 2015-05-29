@@ -1,8 +1,8 @@
 # ComplexMultipliers
 
 ## Conventional
-* Conventional_UFP_NoPipe -- Conventional Unpipelined Floating Point multiplier
-	* NCL_signals.vhd, NCL_gates.vhd, NCL_functions.vhd, MTNCL_gates.vhd, MTNCL_adders.vhd, MTNCL_completion.vhd, MTNCL_registers.vhd, MTNCL_misc.vhd, MTNCL_adder_generic.vhd, MTNCL_sub_generic.vhd, MTNCL_mult_signed_gen.vhd
+* Conventional_UFP_NoPipe -- Generic Conventional complex number multiplier, 2-pipeline stages (maybe)
+	* NCL_signals.vhd, NCL_gates.vhd, NCL_functions.vhd, MTNCL_gates.vhd, MTNCL_adders.vhd, MTNCL_completion.vhd, MTNCL_registers.vhd, MTNCL_misc.vhd, MTNCL_add_gen.vhd, MTNCL_sub_gen.vhd, MTNCL_mult_signed_gen.vhd
 
 ## MTNCL Library
 * MTNCL_add_gen -- Contains generic MTNCL 2s complement adder
