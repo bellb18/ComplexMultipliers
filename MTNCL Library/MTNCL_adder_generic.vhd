@@ -51,7 +51,7 @@ architecture arch of addsw is
 			 ko             : OUT std_logic);
 	end component;
 
-	component th22dx0 is
+	component th22d_a is
 		port(a   : in  std_logic;
 			 b   : in  std_logic;
 			 rst : in  std_logic;
@@ -82,7 +82,7 @@ begin
 		generic map(width)
 		port map(y, kor2, rst, sleepin, kor1b);
 
-	THin0 : th22dx0
+	THin0 : th22d_a
 		port map(kor1a, kor1b, rst, kor1);
 
 	--logic

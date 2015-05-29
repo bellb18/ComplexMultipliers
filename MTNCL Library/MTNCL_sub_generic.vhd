@@ -1,7 +1,7 @@
 
------------------------------------------^M
+-----------------------------------------
 -- Definition of subw  
------------------------------------------^M
+-----------------------------------------
 
 Library IEEE;
 use IEEE.std_logic_1164.all;
@@ -41,7 +41,7 @@ architecture arch of subsw is
 			 ko             : OUT std_logic);
 	end component;
 
-	component th22nx0 is
+	component th22n_a is
 		port(a   : in  std_logic;
 			 b   : in  std_logic;
 			 rst : in  std_logic;
@@ -54,7 +54,7 @@ architecture arch of subsw is
 			Y     : IN  dual_rail_logic;
 			Pre   : IN  dual_rail_logic;
 			sleep : in  std_logic;
-			P     : OUT dual_rail_logic); --*
+			P     : OUT dual_rail_logic);
 	end component;
 
 	signal ppt                      : dual_rail_logic_vector(2 * width - 1 downto 0);
@@ -90,7 +90,7 @@ begin
 		generic map(width)
 		port map(yi, kor2, rst, sleepin, kor1b);
 
-	THin0 : th22nx0
+	THin0 : th22n_a
 		port map(kor1a, kor1b, rst, kor1);
 
 	--logic
