@@ -41,21 +41,22 @@ architecture arch_Conventional_UFP of Conventional_UFP is
 			 ko               : out std_logic);
 	end component;
 
-	component th22nx0 is
+	component th22n_a is
 		port(a   : in  std_logic;
 			 b   : in  std_logic;
 			 rst : in  std_logic;
 			 z   : out std_logic);
 	end component;
 
-	component th22dx0 is
+	component th22d_a is
 		port(a   : in  std_logic;
 			 b   : in  std_logic;
 			 rst : in  std_logic;
 			 z   : out std_logic);
 	end component;
 
-	component multQ7 is
+	component mult_genm is
+		generic(width : in integer := 8);
 		port(x                : in  dual_rail_logic_vector(7 downto 0);
 			 y                : in  dual_rail_logic_vector(7 downto 0);
 			 ki, rst, sleepin : in  std_logic;
@@ -72,16 +73,20 @@ architecture arch_Conventional_UFP of Conventional_UFP is
 	signal Outreal, Outimag : dual_rail_logic_vector(16 downto 0);
 
 begin
-	Xrcosinst : multQ7
+	Xrcosinst : mult_genm
+		generic map(width)
 		port map(Xr, Yr, kosub, rst, sleep, Xrcos, sleepxrc, koxrc);
 
-	Xisininst : multQ7
+	Xisininst : mult_genm
+		generic map(width)
 		port map(Xi, Yi, kosub, rst, sleep, Xisin, sleepxis, koxis);
 
-	Xicosinst : multQ7
+	Xicosinst : mult_genm
+		generic map(width)
 		port map(Xi, Yr, koadd, rst, sleep, Xicos, sleepxic, koxic);
 
-	Xrsininst : multQ7
+	Xrsininst : mult_genm
+		generic map(width)
 		port map(Xr, Yi, koadd, rst, sleep, Xrsin, sleepxrs, koxrs);
 
 	XrcosMXisin : subsw
@@ -92,40 +97,17 @@ begin
 		generic map(16)
 		port map(Xicos, Xrsin, ki, rst, sleepinadd, Outimag, sleepoutadd, koadd);
 
-	Thsleepinadd : th22nx0 port map(sleepxic, sleepxrs, rst, sleepinadd);
-	Thsleepinsub : th22nx0 port map(sleepxrc, sleepxis, rst, sleepinsub);
+	Thsleepinadd : th22n_a port map(sleepxic, sleepxrs, rst, sleepinadd);
+	Thsleepinsub : th22n_a port map(sleepxrc, sleepxis, rst, sleepinsub);
 
-	Thsleepout : th22nx0 port map(sleepoutadd, sleepoutsub, rst, sleepout);
+	Thsleepout : th22n_a port map(sleepoutadd, sleepoutsub, rst, sleepout);
 
-	Thkoinreal : th22dx0 port map(koxrc, koxis, rst, koreal);
-	Thkoinimag : th22dx0 port map(koxic, koxrs, rst, koimag);
+	Thkoinreal : th22d_a port map(koxrc, koxis, rst, koreal);
+	Thkoinimag : th22d_a port map(koxic, koxrs, rst, koimag);
 
-	Thkoin : th22dx0 port map(koreal, koimag, rst, ko);
+	Thkoin : th22d_a port map(koreal, koimag, rst, ko);
 
 	Outr <= Outreal;
 	Outi <= Outimag;
-
---debuger: process(Xi, Xr, Xrcos, Xisin, Xrsin, Xicos, Outreal, Outimag, sin, cos)
---variable dXi, dXr, dcos, dsin: STD_LOGIC_VECTOR(7 downto 0);
---variable dXrcos, dXisin, dXrsin, dXicos, dOutr, dOuti: STD_LOGIC_VECTOR(15 downto 0);
-
-
---begin
-
-
---dcos := to_SL(cos);
---dsin := to_SL(sin);	
---dXi := to_SL(Xi);
---dXr := to_SL(Xr);
-
---dXicos := to_SL(Xicos);
---dXrcos := to_SL(Xrcos);  
---dXisin := to_SL(Xisin);
---dXrsin := to_SL(Xrsin);  
-
---dOutr := to_SL(Outreal);
---dOuti := to_SL(Outimag);
-
---end process;
 
 end architecture arch_Conventional_UFP;
