@@ -1,15 +1,18 @@
 # ComplexMultipliers
 
 ## Conventional
-* Conventional_UFP_NoPipe -- Conventional Unpipelined Floating Point multiplier (unfinished)
+* Conventional_UFP_NoPipe -- Conventional Unpipelined Floating Point multiplier
+	* NCL_signals.vhd, NCL_gates.vhd, NCL_functions.vhd, MTNCL_gates.vhd, MTNCL_adders.vhd, MTNCL_completion.vhd, MTNCL_registers.vhd, MTNCL_misc.vhd, MTNCL_adder_generic.vhd, MTNCL_sub_generic.vhd, MTNCL_mult_signed_gen.vhd
 
 ## MTNCL Library
+* MTNCL_add_gen -- Contains generic MTNCL 2s complement adder
 * MTNCL_adders -- Contains MTNCL Half Adder, Full Adder, CSA, etc.
-* MTNCL_boolean -- Contains and2i gate and NCL_inv
 * MTNCL_completion -- Contains completion gates
 * MTNCL_gates -- Contains standard MTNCL gates
-* MTNCL_multiplier_generic  -- Contains a generic multiplier
+* MTNCL_misc -- Contains and2i gate, NCL_inv, and MSB
+* MTNCL_mult_signed_gen  -- Contains a generic 2s complement multiplier
 * MTNCL_registers -- Contains regm
+* MTNCL_sub_gen -- Contains generic 2s complement subtraction unit
 
 
 ## NCL Library
@@ -19,6 +22,9 @@
 
 
 ## Testbences
-* tb_mult_genm -- Testbench for generic multiplier. Tests all possible combinations for 8 x 8 array
+* tb_add_genm -- Testbench for generic adder. Tests all possible combinations for 8 x 8 array.
+* tb_Conventional -- Testbench for generic Conventional complex multiplier.
+* tb_mult_genm -- Testbench for generic multiplier. Tests all possible combinations for 8 x 8 array.
+* tb_sub_genm -- Testbench for generic subtraction unit. Tests all possible combinations for 8 x 8 array.
  
 
