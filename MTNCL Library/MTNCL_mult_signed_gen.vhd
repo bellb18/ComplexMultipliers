@@ -3,10 +3,10 @@ use IEEE.std_logic_1164.all;
 use work.ncl_signals.all;
 entity mult_genm is
 	generic(width : in integer := 16);
-	port(x                : in  dual_rail_logic_vector(width - 1 downto 0);
-		 y                : in  dual_rail_logic_vector(width - 1 downto 0);
+	port(x     : in  dual_rail_logic_vector(width - 1 downto 0);
+		 y     : in  dual_rail_logic_vector(width - 1 downto 0);
 		 sleep : in  std_logic;
-		 p                : out dual_rail_logic_vector(2 * width - 1 downto 0));
+		 p     : out dual_rail_logic_vector(2 * width - 1 downto 0));
 end;
 
 architecture arch of mult_genm is
@@ -42,7 +42,7 @@ architecture arch of mult_genm is
 	type Ctype is array (width + 1 downto 0) of dual_rail_logic_vector(width downto 0);
 	signal ppt : dual_rail_logic_vector(2 * width - 1 downto 0);
 
-	signal creg, sreg : Ctype;
+	signal creg, sreg         : Ctype;
 	signal sigdata0, sigdata1 : dual_rail_logic;
 
 begin
@@ -112,9 +112,6 @@ begin
 	end generate;
 
 end arch;
-
-
-
 
 Library IEEE;
 use IEEE.std_logic_1164.all;

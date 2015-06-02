@@ -23,4 +23,4 @@ begin
 	z.rail0 <= t0;
 	z.rail1 <= t1;
 
-end arch; 
+end arch;

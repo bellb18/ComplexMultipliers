@@ -37,14 +37,14 @@ architecture arch of CLA_genm is
 		P     : OUT dual_rail_logic);   --*
 	end component;
 
-	component rca4bm
+	component RCA4bm
 		port(x     : in  dual_rail_logic_vector(3 downto 0);
 			 y     : in  dual_rail_logic_vector(3 downto 0);
 			 cin   : in  DUAL_RAIL_LOGIC;
 			 sleep : in  std_logic;
 			 cout  : out DUAL_RAIL_LOGIC;
 			 sum   : out dual_rail_logic_vector(3 downto 0));
-	end component rca4bm;
+	end component RCA4bm;
 
 	component HAm
 		port(X, Y    : in  dual_rail_logic;
@@ -100,7 +100,7 @@ begin
 			);
 
 		--Sum 4 bits---
-		rca_4b_0 : rca4bm
+		rca_4b_0 : RCA4bm
 			port map(
 				cin   => temp_carry2(i - 1),
 				x     => xi(i * 4 + (width mod 4) - 1 downto 4 * (i - 1) + (width mod 4)),

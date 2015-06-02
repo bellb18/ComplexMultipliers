@@ -19,7 +19,7 @@ entity RCA4bm is
 	);
 end;
 
-architecture arch of rca4bm is
+architecture arch of RCA4bm is
 	component FAm
 		port(
 			CIN, X, Y : in  dual_rail_logic;
